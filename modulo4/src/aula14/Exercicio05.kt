@@ -1,6 +1,12 @@
-package aula13
+package aula14
 
+/*Exercício 01 da parte 'Exercícios gerais'*/
 fun main() {
+
+    calcularDoisNumeros()
+}
+
+fun calcularDoisNumeros() {
     print("Informe o primeiro número: ")
     val primeiroNumero = readln().toDouble()
 
@@ -40,5 +46,4 @@ fun main() {
             print("Opção inválida")
         }
     }
-
 }
