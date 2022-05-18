@@ -7,7 +7,7 @@ class GuardaVolumes() {
     private var identificador: Int = 0
 
     internal fun guardarPecas(listaDePeca: ArrayList<Peca>): Int {
-        dicionario[identificador] = listaDePeca
+        dicionario[identificador] = ArrayList(listaDePeca)
         identificador++
         return identificador - 1
     }
@@ -17,7 +17,8 @@ class GuardaVolumes() {
             println("Não tem nenhum item cadastrado ainda")
         } else {
             dicionario.forEach { (identificador, listaDePeca) ->
-                println("Código: $identificador | Lista: ${listaDePeca.forEach { peca -> println("Marca: ${peca.marca} e Modelo: ${peca.modelo}") }}")
+                println("Código: $identificador | Lista: ")
+                println("${listaDePeca.forEach { peca -> println("Marca: ${peca.marca} e Modelo: ${peca.modelo}") }} \n")
             }
         }
     }
@@ -27,6 +28,7 @@ class GuardaVolumes() {
             val listaProcurada = dicionario[numero]
 
             if (!listaProcurada.isNullOrEmpty()) {
+                println("O volume ${numero} contém a(s) peça(s) a seguir:")
                 listaProcurada.forEach { peca -> println("Marca: ${peca.marca} e Modelo: ${peca.modelo}") }
             } else {
                 println("O código foi encontrado, porém não tem lista cadastrada")

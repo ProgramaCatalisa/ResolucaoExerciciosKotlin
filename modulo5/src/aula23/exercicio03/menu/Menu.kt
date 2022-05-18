@@ -19,17 +19,15 @@ class Menu {
             println("O que deseja fazer hoje?")
             println("1 - Guardar volume")
             println("2 - Retirar volume")
-            println("3 - Ver todos os itens guardados")
-            println("4 - Sair do programa")
+            println("3 - Ver itens de um volume")
+            println("4 - Ver todos os itens guardados")
+            println("5 - Sair do programa")
 
             val opcao = readln().toInt()
 
             when (opcao) {
                 1 -> {
                     menuInsercaoPeca()
-                    val codigoVolumeGuardado = guardaVolumes.guardarPecas(listaPecas)
-                    println("Seu volume foi guardado sob o código: $codigoVolumeGuardado")
-                    menu()
                 }
 
                 2 -> {
@@ -41,11 +39,18 @@ class Menu {
                 }
 
                 3 -> {
-                    guardaVolumes.mostrarPeca()
+                    println("Informe o código do volume que deseja pesquisar: ")
+                    val codigoVolumePesquisar = readln().toInt()
+                    guardaVolumes.mostrarPeca(codigoVolumePesquisar)
                     menu()
                 }
 
                 4 -> {
+                    guardaVolumes.mostrarPeca()
+                    menu()
+                }
+
+                5 -> {
                     println("Até breve!")
                     exitProcess(0)
                 }
@@ -57,11 +62,12 @@ class Menu {
         }
 
         private fun menuInsercaoPeca() {
-            println("O que deseja fazer hoje?")
-            println("1 - Guardar roupas")
-            println("2 - Guardar acessórios")
-            println("3 - Retornar ao menu principal")
-            println("4 - Sair do sistema")
+            println("Adicione algo ao volume para guardá-lo")
+            println("1 - Adicionar roupas")
+            println("2 - Adicionar acessórios")
+            println("3 - Guardar volume")
+            println("4 - Cancelar")
+            println("5 - Sair do sistema")
 
             val opcao = readln().toInt()
 
@@ -75,6 +81,8 @@ class Menu {
 
                     val roupa = Roupa(marca, modelo)
                     listaPecas.add(roupa)
+
+                    menuInsercaoPeca()
                 }
                 2 -> {
                     println("Informe o nome da marca do acessório: ")
@@ -88,11 +96,24 @@ class Menu {
 
                     val acessorio = Acessorio(marca, modelo, tipo)
                     listaPecas.add(acessorio)
+
+                    menuInsercaoPeca()
                 }
                 3 -> {
-                    menu()
+                    if (listaPecas.isEmpty()){
+                        println("O volume está vazio, adicione uma roupa ou um acessório antes de guardá-lo \n")
+                        menuInsercaoPeca()
+                    } else {
+                        val codigoVolumeGuardado = guardaVolumes.guardarPecas(listaPecas)
+                        println("Seu volume foi guardado sob o código: $codigoVolumeGuardado")
+                        listaPecas.clear()
+                        menu()
+                    }
                 }
                 4 -> {
+                    menu()
+                }
+                5 -> {
                     println("Até breve!")
                     exitProcess(0)
                 }
