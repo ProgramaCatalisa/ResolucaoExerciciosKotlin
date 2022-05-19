@@ -1,5 +1,6 @@
-package aula23.exercicio04
+package aula23.exercicio04.formas
 
+import aula23.exercicio04.inteface.FormaGeometrica
 import kotlin.math.PI
 import kotlin.math.pow
 

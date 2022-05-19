@@ -1,4 +1,4 @@
-package aula23.exercicio04
+package aula23.exercicio04.formas
 
 class Retangulos(override val lado1: Double, override val lado2: Double) : Quadrilateros() {
 

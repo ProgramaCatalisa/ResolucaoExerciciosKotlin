@@ -1,5 +1,9 @@
-package aula23.exercicio04
+package aula23.exercicio04.menu
 
+import aula23.exercicio04.formas.Circulo
+import aula23.exercicio04.formas.Quadrado
+import aula23.exercicio04.formas.Retangulos
+import aula23.exercicio04.inteface.FormaGeometrica
 import java.util.*
 
 class Menu {

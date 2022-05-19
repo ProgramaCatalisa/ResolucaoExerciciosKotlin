@@ -1,4 +1,4 @@
-package aula23.exercicio04
+package aula23.exercicio04.inteface
 
 interface FormaGeometrica {
     fun calcularPerimetro()
