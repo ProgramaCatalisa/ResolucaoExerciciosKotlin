@@ -1,6 +1,6 @@
 package aula23.exercicio04.formas
 
-import aula23.exercicio04.inteface.FormaGeometrica
+import aula23.exercicio04.interfaces.FormaGeometrica
 
 abstract class Quadrilateros : FormaGeometrica {
 
