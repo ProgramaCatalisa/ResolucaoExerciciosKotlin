@@ -12,6 +12,6 @@ class Circulo (val raio: Double) : FormaGeometrica {
 
     override fun calcularArea() {
         val area = PI * raio.pow(2)
-        println("O perímetro do círculo é: $area")
+        println("A área do círculo é: $area")
     }
 }
